@@ -8,7 +8,7 @@
 const { createClient } = require("redis");
 
 const redisClient = createClient({
-  url: "redis://localhost:6379",
+  url: process.env.REDIS_URL || "redis://localhost:6379",
 });
 
 // The redis client emits an 'error' event on connection problems —

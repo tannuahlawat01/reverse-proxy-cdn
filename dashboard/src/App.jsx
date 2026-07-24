@@ -9,7 +9,7 @@ import { PieChart, Pie, Cell, Tooltip, Legend, ResponsiveContainer } from "recha
 
 // Base URL of your PROXY server (not the origin) -- this is the server
 // that exposes /api/stats and /api/purge.
-const PROXY_URL = "http://localhost:5000";
+const PROXY_URL = import.meta.env.VITE_PROXY_URL || "http://localhost:5000";;
 
 function App() {
   const [stats, setStats] = useState({ hits: 0, misses: 0, total: 0, hitRatio: "0.00%" });
