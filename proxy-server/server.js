@@ -12,12 +12,15 @@
 
 const express = require("express");
 const axios = require("axios");
+const cors = require("cors");
 const { redisClient, connectRedis } = require("./redisClient");
 
 const app = express();
 const PORT = 5000;
-const ORIGIN_URL = "http://localhost:4000"; // where the real origin server lives
+const ORIGIN_URL = "http://localhost:4000";
 const CACHE_TTL_SECONDS = 60;
+
+app.use(cors());
 
 // --- 1. Analytics endpoint ---
 app.get("/api/stats", async (req, res) => {
